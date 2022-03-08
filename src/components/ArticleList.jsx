@@ -17,8 +17,8 @@ export default function PlanetList() {
   if (isLoading) return <p>loading..</p>;
   return (
     <section className="section__article">
-      {articles.map(({ title }) => {
-        return <ArticleCard ArticleName={title} />;
+      {articles.map(({ title, body }) => {
+        return <ArticleCard ArticleName={title} Article={body}/>;
       })}
     </section>
   );
