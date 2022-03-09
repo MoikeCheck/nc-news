@@ -56,3 +56,21 @@
   height: 30px;
   padding-right: 30px;
 }
+
+.nav__list {
+  list-style-type: none;
+}
+
+.nav__item__link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.topic__header {
+  padding-left: 50px;
+}
+
+.nav__item {
+  display: inline;
+  padding: 10px;
+}
