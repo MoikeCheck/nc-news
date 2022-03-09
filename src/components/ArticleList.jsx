@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import * as api from "../Api";
 
-export default function PlanetList() {
+export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,8 +17,17 @@ export default function PlanetList() {
   if (isLoading) return <p>loading..</p>;
   return (
     <section className="section__article">
-      {articles.map(({ title, body }) => {
-        return <ArticleCard ArticleName={title} Article={body}/>;
+      {articles.map(({ title, body, topic, author, votes, comment_count }) => {
+        return (
+          <ArticleCard
+            ArticleName={title}
+            Article={body}
+            Topic={topic}
+            Author={author}
+            Votes={votes}
+            CommentCount={comment_count}
+          />
+        );
       })}
     </section>
   );
