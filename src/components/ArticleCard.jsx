@@ -1,4 +1,5 @@
 import { Card, Button } from "react-bootstrap";
+import logo from "../assets/orange-slice (1).png";
 
 export default function ArticleCard({
   ArticleName,
@@ -9,7 +10,7 @@ export default function ArticleCard({
 }) {
   return (
     <Card style={{ width: "18rem" }} className="article__card">
-      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+      <Card.Img src={logo} className="card__img" />
       <Card.Body>
         <Card.Title className="card__title">{ArticleName}</Card.Title>
         <Card.Text className="card__text">
