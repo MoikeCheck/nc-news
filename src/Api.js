@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const myApi = axios.create({
   baseURL: "https://nc-news-example-seminar-2-3.herokuapp.com/api",
 });
@@ -16,4 +17,12 @@ export const getTopics = () => {
   return myApi.get(`/topics`).then(({ data }) => {
     return data.topics;
   });
+};
+
+export const getArticleById = (article_id) => {
+  return myApi
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
