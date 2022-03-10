@@ -1,34 +1,41 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import * as api from "../Api";
+import { useParams } from "react-router-dom";
 
 export default function ArticleList() {
+  const { slug } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    api.getArticles().then((articles) => {
+    api.getArticles(slug).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [slug]);
 
   if (isLoading) return <p>loading..</p>;
   return (
     <section className="section__article">
-      {articles.map(({ title, body, topic, author, votes, comment_count }) => {
-        return (
-          <ArticleCard
-            ArticleName={title}
-            Article={body}
-            Topic={topic}
-            Author={author}
-            Votes={votes}
-            CommentCount={comment_count}
-          />
-        );
-      })}
+      <h2 className="topic__header">{slug ? slug : "All Topics"}</h2>
+      <ul>
+        {articles.map(
+          ({ title, body, topic, author, votes, comment_count }) => {
+            return (
+              <ArticleCard
+                ArticleName={title}
+                Article={body}
+                Topic={topic}
+                Author={author}
+                Votes={votes}
+                CommentCount={comment_count}
+              />
+            );
+          }
+        )}
+      </ul>
     </section>
   );
 }
