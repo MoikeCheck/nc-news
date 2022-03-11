@@ -20,7 +20,12 @@ export const getTopics = () => {
 
 export const getArticleById = (article_id) => {
   return myApi.get(`/articles/${article_id}`).then(({ data }) => {
-    console.log(data.article);
+    return data.article;
+  });
+};
+
+export const patchVotesById = (article_id) => {
+  return myApi.patch(`/articles/${article_id}`, { inc_votes: 1 }).then(({ data }) => {
     return data.article;
   });
 };

@@ -13,12 +13,16 @@ export default function ArticleCard({
 }) {
   return (
     <Card style={{ width: "18rem" }} className="article__card">
-      <Card.Img src={logo} className="card__img" />
       <Card.Body>
         <Card.Title className="card__title">{ArticleName}</Card.Title>
         <Card.Text className="card__text">
-          Topic: {Topic} Author: {Author} Votes: {Votes} Comments:{" "}
-          {CommentCount}
+          Topic: {Topic}
+          <br />
+          Author: {Author}
+          <br />
+          <br />
+          <Card.Img src={logo} className="card__img" />
+          {Votes} Comments: {CommentCount}
         </Card.Text>
         <Button variant="primary" className="card__button">
           <Link className="nav__item__link" to={`/article/${ArticleID}`}>

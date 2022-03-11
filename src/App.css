@@ -1,6 +1,6 @@
-.section__article {
-  display: grid;
-}
+/* .section__article {
+
+} */
 
 .article__card {
   background-color: #f76e11;
@@ -54,7 +54,6 @@
 .card__img {
   width: 30px;
   height: 30px;
-  padding-right: 30px;
 }
 
 .nav__list {
@@ -73,4 +72,30 @@
 .nav__item {
   display: inline;
   padding: 10px;
+}
+
+.single__card{
+  background-color: #f76e11;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 6px;
+}
+
+
+.single__card__votes{
+  padding-left: 245px;
+}
+
+.card__img__single{
+  width: 30px;
+  height: 30px;
+  padding-left: 245px;
+}
+
+.card__text__single{
+  color: #000000;
 }

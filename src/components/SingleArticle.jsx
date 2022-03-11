@@ -3,7 +3,7 @@ import * as api from "../Api";
 import { useParams } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import logo from "../assets/orange-slice (1).png";
-import React from 'react';
+import React from "react";
 
 export default function SingleArticle() {
   const [article, setArticle] = useState([]);
@@ -21,18 +21,23 @@ export default function SingleArticle() {
 
   return (
     <div>
-      <Card style={{ width: "18rem" }} className="article__card">
-        <Card.Img src={logo} className="card__img" />
+      <Card style={{ width: "18rem" }} className="single__card">
         <Card.Body>
           <Card.Title className="card__title">{article.title}</Card.Title>
-          <Card.Text className="card__text">
-            Topic: {article.topic} Author: {article.author} Votes:{" "}
-            {article.votes} Body:{article.body}
-            {article.comment_count}
+          <Card.Text className="card__text__single">
+            {article.body}
+            <br />
+            <br />
+            Author: {article.author}
+            <br />
+            <br />
           </Card.Text>
           <Button variant="primary" className="card__button">
             Comments
-          </Button>
+          </Button>{" "}
+          {article.comment_count}
+            <Card.Img src={logo} className="card__img__single" />
+            {article.votes}
         </Card.Body>
       </Card>
     </div>
