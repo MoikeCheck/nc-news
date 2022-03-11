@@ -1,4 +1,5 @@
 import logo from "../assets/orange-slice.png";
+import React from 'react';
 
 export default function Header() {
   return (

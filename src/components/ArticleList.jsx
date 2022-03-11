@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import * as api from "../Api";
 import { useParams } from "react-router-dom";
+import React from "react";
 
 export default function ArticleList() {
   const { slug } = useParams();
@@ -22,9 +23,19 @@ export default function ArticleList() {
       <h2 className="topic__header">{slug ? slug : "All Topics"}</h2>
       <ul>
         {articles.map(
-          ({ title, body, topic, author, votes, comment_count }) => {
+          ({
+            title,
+            body,
+            topic,
+            author,
+            votes,
+            comment_count,
+            article_id,
+          }) => {
             return (
               <ArticleCard
+                key={article_id}
+                ArticleID={article_id}
                 ArticleName={title}
                 Article={body}
                 Topic={topic}

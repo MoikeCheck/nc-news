@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import ArticleCard from "./ArticleCard";
 import * as api from "../Api";
 import { useParams } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import logo from "../assets/orange-slice (1).png";
+import React from 'react';
 
 export default function SingleArticle() {
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     api.getArticleById(article_id).then((article) => {
       console.log(article);
       setArticle(article);
-      setIsLoading(false);
+      // setIsLoading(false);
     });
   }, [article_id]);
 

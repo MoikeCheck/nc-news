@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
+import React from 'react';
 
 function App() {
   return (
