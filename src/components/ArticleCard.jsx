@@ -1,5 +1,7 @@
 import { Card, Button } from "react-bootstrap";
 import logo from "../assets/orange-slice (1).png";
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ArticleCard({
   ArticleName,
@@ -7,6 +9,7 @@ export default function ArticleCard({
   Author,
   Votes,
   CommentCount,
+  ArticleID,
 }) {
   return (
     <Card style={{ width: "18rem" }} className="article__card">
@@ -17,7 +20,11 @@ export default function ArticleCard({
           Topic: {Topic} Author: {Author} Votes: {Votes} Comments:{" "}
           {CommentCount}
         </Card.Text>
-        <Button variant="primary" className="card__button">View More</Button>
+        <Button variant="primary" className="card__button">
+          <Link className="nav__item__link" to={`/article/${ArticleID}`}>
+            View More
+          </Link>
+        </Button>
       </Card.Body>
     </Card>
   );

@@ -1,7 +1,7 @@
-import { getTopics } from "../Api";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as api from "../Api";
 import { useEffect, useState } from "react";
+import React from 'react';
 
 export default function NavBar() {
   const [topics, setTopics] = useState([]);
