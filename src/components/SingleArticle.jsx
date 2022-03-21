@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import logo from "../assets/orange-slice (1).png";
 import React from "react";
+import Vote from "./Vote";
 
 export default function SingleArticle() {
   const [article, setArticle] = useState([]);
@@ -36,8 +37,8 @@ export default function SingleArticle() {
             Comments
           </Button>{" "}
           {article.comment_count}
-            <Card.Img src={logo} className="card__img__single" />
-            {article.votes}
+          <Card.Img src={logo} className="card__img__single" />
+          {article.votes}
         </Card.Body>
       </Card>
     </div>

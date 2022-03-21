@@ -3,6 +3,7 @@ import logo from "../assets/orange-slice (1).png";
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 export default function ArticleCard({
   ArticleName,
   Topic,

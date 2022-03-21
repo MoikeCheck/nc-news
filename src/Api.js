@@ -24,8 +24,10 @@ export const getArticleById = (article_id) => {
   });
 };
 
-export const patchVotesById = (article_id) => {
-  return myApi.patch(`/articles/${article_id}`, { inc_votes: 1 }).then(({ data }) => {
-    return data.article;
-  });
+export const patchVotes = (article_id) => {
+  return myApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data.article;
+    });
 };
