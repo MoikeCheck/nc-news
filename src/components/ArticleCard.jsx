@@ -1,8 +1,7 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Image, Container, Col, Row } from "react-bootstrap";
 import logo from "../assets/orange-slice (1).png";
 import React from "react";
 import { Link } from "react-router-dom";
-
 
 export default function ArticleCard({
   ArticleName,
@@ -13,24 +12,33 @@ export default function ArticleCard({
   ArticleID,
 }) {
   return (
-    <Card style={{ width: "18rem" }} className="article__card">
-      <Card.Body>
-        <Card.Title className="card__title">{ArticleName}</Card.Title>
-        <Card.Text className="card__text">
-          Topic: {Topic}
-          <br />
-          Author: {Author}
-          <br />
-          <br />
-          <Card.Img src={logo} className="card__img" />
-          {Votes} Comments: {CommentCount}
-        </Card.Text>
-        <Button variant="primary" className="card__button">
-          <Link className="nav__item__link" to={`/article/${ArticleID}`}>
-            View More
-          </Link>
-        </Button>
-      </Card.Body>
-    </Card>
+    <Link to={`/article/${ArticleID}`} className="normal-text">
+      <Container>
+        <Card
+          className="article__card my-3 pt-2 justify-content-center"
+          xs="4"
+          md="4"
+          lg="4"
+        >
+          <Card.Body>
+            <Card.Title className="card__title">{ArticleName} </Card.Title>
+            <Card.Text className="card__text">
+              Topic: {Topic}
+              <br />
+              Author: {Author}
+              <br />
+              <br />
+              <Row className="justify-content-md-center">
+                <Col>Comments: {CommentCount}</Col>
+                <Col xs={12} sm={4} md={4}>
+                  <Image src={logo} className="card__img ml-5" width="40" />
+                  {Votes}
+                </Col>
+              </Row>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Container>
+    </Link>
   );
 }

@@ -1,8 +1,8 @@
 body {
-  margin: 0;
-  font-family: "Maiden Orange", cursive;
+  margin: 0 !important;
+  font-family: "Maiden Orange", cursive !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ffbc80;
-  letter-spacing: 1.5px;
+  background-color: #ffbc80 !important;
+  letter-spacing: 1.5px !important;
 }
