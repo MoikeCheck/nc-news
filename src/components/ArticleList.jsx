@@ -20,33 +20,23 @@ export default function ArticleList() {
   if (isLoading) return <p>loading..</p>;
   return (
     <section className="section__article">
-      <h2 className="topic__header">{slug ? slug : "All Topics"}</h2>
-      <ul>
-        {articles.map(
-          ({
-            title,
-            body,
-            topic,
-            author,
-            votes,
-            comment_count,
-            article_id,
-          }) => {
-            return (
-              <ArticleCard
-                key={article_id}
-                ArticleID={article_id}
-                ArticleName={title}
-                Article={body}
-                Topic={topic}
-                Author={author}
-                Votes={votes}
-                CommentCount={comment_count}
-              />
-            );
-          }
-        )}
-      </ul>
+      {/* <h2 className="topic__header">{slug ? slug : "All Topics"}</h2> */}
+      {articles.map(
+        ({ title, body, topic, author, votes, comment_count, article_id }) => {
+          return (
+            <ArticleCard
+              key={article_id}
+              ArticleID={article_id}
+              ArticleName={title}
+              Article={body}
+              Topic={topic}
+              Author={author}
+              Votes={votes}
+              CommentCount={comment_count}
+            />
+          );
+        }
+      )}
     </section>
   );
 }
