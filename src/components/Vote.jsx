@@ -1,6 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { patchVotes } from "../Api";
+import down from "../assets/down.png";
+import up from "../assets/up.png";
+import { Container, Image } from "react-bootstrap";
 
 export default function Vote({ article_id, votes }) {
   const [votedUp, setVotedUp] = useState(false);
@@ -44,10 +47,20 @@ export default function Vote({ article_id, votes }) {
   };
 
   return (
-    <div className="vote">
-      <button onClick={handleVoteUp}>like</button>
+    <Container className="vote">
+      <Image
+        onClick={handleVoteUp}
+        src={up}
+        className="card__img ml-5"
+        width="30"
+      ></Image>
       <p>Votes {displayVote}</p>
-      <button onClick={handleVoteDown}>dislike</button>
-    </div>
+      <Image
+        onClick={handleVoteDown}
+        src={down}
+        className="card__img ml-5"
+        width="30"
+      ></Image>
+    </Container>
   );
 }

@@ -23,7 +23,7 @@ export default function NavBar() {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel">
-              Article Topics
+              Zest Topics
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>

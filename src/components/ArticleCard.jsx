@@ -12,7 +12,11 @@ export default function ArticleCard({
   ArticleID,
 }) {
   return (
-    <Link to={`/article/${ArticleID}`} className="normal-text">
+    <Link
+      to={`/article/${ArticleID}`}
+      className="normal-text"
+      style={{ textDecoration: "none", color: "white" }}
+    >
       <Container>
         <Card
           className="article__card my-3 pt-2 justify-content-center"
