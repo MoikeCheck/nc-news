@@ -18,17 +18,21 @@ export default function CommentCard({ comment }) {
             <Card.Title className="card-title topic">
               <Card.Text>@{comment.author}</Card.Text>
             </Card.Title>
-            <Link className="no-styling" to={`/comment/${comment.comment_id}`}>
-              delete
-            </Link>
           </Row>
           <Card.Text className="card-text my-2">{comment.body}</Card.Text>
-          <Col className="pr-5 mr-5">
-            <Image src={thumb} className="card__img ml-5" width="30" />
-            <Card.Text className="my-5" style={{ display: "inline" }}>
-              {comment.votes}
-            </Card.Text>
-          </Col>
+          <Row>
+            <Col>
+              <Image src={thumb} className=" me-5" width="30" />
+              <Card.Text className="mx-5" style={{ display: "inline" }}>
+                {comment.votes}
+              </Card.Text>
+              <Col>
+              <Link className="ps-5 ms-5" to={`/comment/${comment.comment_id}`}>
+                delete
+              </Link>
+              </Col>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
       <footer className="blockquote-footer mt-1">

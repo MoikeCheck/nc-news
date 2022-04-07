@@ -32,8 +32,16 @@ export const patchVotes = (article_id) => {
     });
 };
 
-export const fetchCommentsByArticleId = (article_id) => {
+export const getCommentsByArticleId = (article_id) => {
   return myApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
     return data.comments;
   });
 };
+
+export function postComment(article_id, comment) {
+  return myApi
+    .post(`/articles/${article_id}/comments`, comment)
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+}

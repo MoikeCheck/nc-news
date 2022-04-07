@@ -7,6 +7,7 @@ import up from "../assets/up.png";
 import React from "react";
 import Vote from "./Vote";
 import Comments from "./Comments";
+import PostComment from './PostComment';
 
 export default function SingleArticle() {
   const [article, setArticle] = useState([]);
@@ -21,7 +22,7 @@ export default function SingleArticle() {
       setArticle(article);
       // setIsLoading(false);
     });
-    api.fetchCommentsByArticleId(article_id).then((res) => {
+    api.getCommentsByArticleId(article_id).then((res) => {
       setComments(res);
     });
   }, [article_id]);
@@ -58,6 +59,7 @@ export default function SingleArticle() {
           {Date(article.created_at)}
         </footer>
       </Container>
+      <PostComment />
       <div className="comments-container mx-2 my-3">
         <h3>comments</h3>
         {comments.map((comment) => {
