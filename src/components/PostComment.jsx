@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { postComment } from "../Api";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./Contexts/UserContext";
 import { Container, Form, Card, Button } from "react-bootstrap";
 import React from "react";
 
@@ -16,7 +16,7 @@ export default function PostComment({ setPosted, id }) {
     if (comment.length > 0) {
       postComment(id, {
         username: loggedInUser.username,
-        body: comment,
+        body: comment
       }).then((res) => {
         setCommentPosted(res.comment_id);
         setComment("");
@@ -35,7 +35,7 @@ export default function PostComment({ setPosted, id }) {
     <Container className="new-comment-container">
       {commentPosted !== undefined ? (
         <div className="alert alert-success my-2" role="alert">
-          <p className="alert-heading">comment posted </p>{" "}
+          <p className="alert-heading">comment posted </p>
         </div>
       ) : (
         <Container>

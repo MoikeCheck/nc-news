@@ -1,7 +1,14 @@
 import * as api from "../Api";
 import { useEffect, useState } from "react";
 import React from "react";
-import { Navbar, Container, Offcanvas, Nav, ListGroup } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Offcanvas,
+  Nav,
+  ListGroup,
+  NavDropdown,
+} from "react-bootstrap";
 
 export default function NavBar() {
   const [topics, setTopics] = useState([]);
@@ -15,7 +22,7 @@ export default function NavBar() {
     <Navbar bg="light" expand={false}>
       <Container fluid>
         <Navbar.Brand href="/">Home</Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar"  />
+        <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
@@ -33,9 +40,6 @@ export default function NavBar() {
                   <Nav.Link className="nav__item__link" href="/">
                     All Articles
                   </Nav.Link>
-                  <Nav.Link className="nav__item__link" href="/user">
-                    Profile
-                  </Nav.Link>
                 </ListGroup.Item>
               </ListGroup>
               {topics.map(({ slug }) => {
@@ -52,33 +56,35 @@ export default function NavBar() {
                   </ListGroup>
                 );
               })}
+              <NavDropdown
+                title="Sort Articles By"
+                id="offcanvasNavbarDropdown"
+              >
+                <NavDropdown.Item href={`/articles?sort=created_at`}>
+                  Date
+                </NavDropdown.Item>
+                <NavDropdown.Item href={`/articles?sort=comment_count`}>
+                  Comment count
+                </NavDropdown.Item>
+                <NavDropdown.Item href={`/articles?sort=votes`}>
+                  Votes
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="Order" id="offcanvasNavbarDropdown">
+                <NavDropdown.Item href={`/articles?order=asc`}>
+                  Ascending
+                </NavDropdown.Item>
+                <NavDropdown.Item href={`/articles?order=desc`}>
+                  Descending
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link className="nav__item__link" href="/user">
+                Profile
+              </Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
   );
-}
-
-{
-  /* <div>
-  <nav className="NavBar">
-    <ul className="nav__list">
-      <li className="nav__item">
-        <Link className="nav__item__link" to={"/"}>
-          All
-        </Link>
-      </li>
-      {topics.map(({ slug }) => {
-        return (
-          <li key={slug} className="nav__item">
-            <Nav.Link  className="nav__item__link" to={`/topics/${slug}`}>
-              {slug}
-            </Nav.Link >
-          </li>
-        );
-      })}
-    </ul>
-  </nav>
-</div>; */
 }

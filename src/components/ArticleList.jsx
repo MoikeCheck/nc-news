@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import * as api from "../Api";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import React from "react";
 
 export default function ArticleList() {
@@ -9,18 +9,21 @@ export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [searchParams] = useSearchParams();
+  const sort = searchParams.get("sort");
+  const order = searchParams.get("order");
+
   useEffect(() => {
     setIsLoading(true);
-    api.getArticles(slug).then((articles) => {
+    api.getArticles(slug, sort, order).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, [slug]);
+  }, [slug, sort, order]);
 
   if (isLoading) return <p>loading..</p>;
   return (
     <section className="section__article">
-      {/* <h2 className="topic__header">{slug ? slug : "All Topics"}</h2> */}
       {articles.map(
         ({ title, body, topic, author, votes, comment_count, article_id }) => {
           return (

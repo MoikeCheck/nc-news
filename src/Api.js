@@ -4,9 +4,11 @@ const myApi = axios.create({
   baseURL: "https://nc-news-example-seminar-2-3.herokuapp.com/api",
 });
 
-export const getArticles = (slug) => {
+export const getArticles = (slug, sort_by, order) => {
   return myApi
-    .get("/articles", { params: { topic: slug } })
+    .get("/articles", {
+      params: { topic: slug, sort_by: sort_by, order: order },
+    })
     .then(({ data }) => {
       return data.articles;
     });
@@ -34,17 +36,17 @@ export const patchVotes = (article_id) => {
 
 export const getCommentsByArticleId = (article_id) => {
   return myApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    console.log(data.comments)
+    console.log(data.comments);
     return data.comments;
   });
 };
 
 export const getUsers = () => {
   return myApi.get("/users").then(({ data }) => {
-    console.log(data)
-      return data.users;
-  })
-}
+    console.log(data);
+    return data.users;
+  });
+};
 
 export const postComment = (article_id, comment) => {
   return myApi

@@ -1,30 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import * as api from "../Api";
 import { useParams } from "react-router-dom";
-import { Card, Button, Container, Row, Col, Image } from "react-bootstrap";
-import down from "../assets/down.png";
-import up from "../assets/up.png";
+import { Card, Container, Row, Col } from "react-bootstrap";
 import React from "react";
 import Vote from "./Vote";
 import Comments from "./Comments";
 import PostComment from "./PostComment";
+import { UserContext } from "./Contexts/UserContext";
 
 export default function SingleArticle() {
   const [article, setArticle] = useState([]);
   const [comments, setComments] = useState([]);
-  const { article_id } = useParams();
+  const [postComment, setPostComment] = useState(null);
+  const [posted, setPosted] = useState(0);
   // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // setIsLoading(true);
-    api.getArticleById(article_id).then((article) => {
-      setArticle(article);
-      // setIsLoading(false);
-    });
-    api.getCommentsByArticleId(article_id).then((res) => {
-      setComments(res);
-    });
-  }, [article_id]);
+  const { loggedInUser } = useContext(UserContext);
+  const { article_id } = useParams();
+
+  useEffect(
+    () => {
+      // setIsLoading(true);
+      api.getArticleById(article_id).then((article) => {
+        setArticle(article);
+        // setIsLoading(false);
+      });
+      api.getCommentsByArticleId(article_id).then((res) => {
+        setComments(res);
+        setPostComment(null);
+      });
+    },
+    [article_id],
+    posted
+  );
 
   return (
     <>
@@ -58,7 +66,7 @@ export default function SingleArticle() {
           {Date(article.created_at)}
         </footer>
       </Container>
-      <PostComment />
+      <PostComment setPosted={setPosted} id={article_id} />
       <div className="comments-container mx-2 my-3">
         <h3>comments</h3>
         {comments.map((comment) => {
