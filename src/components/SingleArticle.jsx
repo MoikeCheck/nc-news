@@ -7,7 +7,7 @@ import up from "../assets/up.png";
 import React from "react";
 import Vote from "./Vote";
 import Comments from "./Comments";
-import PostComment from './PostComment';
+import PostComment from "./PostComment";
 
 export default function SingleArticle() {
   const [article, setArticle] = useState([]);
@@ -18,7 +18,6 @@ export default function SingleArticle() {
   useEffect(() => {
     // setIsLoading(true);
     api.getArticleById(article_id).then((article) => {
-      console.log(article);
       setArticle(article);
       // setIsLoading(false);
     });

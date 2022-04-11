@@ -33,6 +33,9 @@ export default function NavBar() {
                   <Nav.Link className="nav__item__link" href="/">
                     All Articles
                   </Nav.Link>
+                  <Nav.Link className="nav__item__link" href="/user">
+                    Profile
+                  </Nav.Link>
                 </ListGroup.Item>
               </ListGroup>
               {topics.map(({ slug }) => {
