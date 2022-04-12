@@ -4,7 +4,7 @@ Hosted site: https://zestnews.netlify.app/
 
 ## The project goal was to create a front-end for a news app similar to reddit. 
 
-The project make use of the React JS framework, utalising tools such as state to manage the data being handled by the API back-end and presenting this information to the user.
+The project makes use of the React JS framework, utalising tools such as state to manage the data being handled by the API back-end and presenting this information to the user.
 
 ## Minimum Version Requirements
 
