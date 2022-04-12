@@ -9,9 +9,11 @@ import {
   ListGroup,
   NavDropdown,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [topics, setTopics] = useState([]);
+
   useEffect(() => {
     api.getTopics().then((topics) => {
       setTopics(topics);
@@ -35,47 +37,69 @@ export default function NavBar() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <ListGroup variant="flush">
-                <ListGroup.Item key="All Articles" className="nav__item">
-                  <Nav.Link className="nav__item__link" href="/">
-                    All Articles
-                  </Nav.Link>
-                </ListGroup.Item>
-              </ListGroup>
-              {topics.map(({ slug }) => {
-                return (
-                  <ListGroup variant="flush">
-                    <ListGroup.Item key={slug} className="nav__item">
-                      <Nav.Link
-                        className="nav__item__link"
-                        href={`/topics/${slug}`}
-                      >
-                        {slug}
-                      </Nav.Link>
-                    </ListGroup.Item>
-                  </ListGroup>
-                );
-              })}
+              <Nav.Link className="nav__item__link" href="/">
+                All Articles
+              </Nav.Link>
+
+              <NavDropdown
+                title="Topics"
+                id="offcanvasNavbarDropdown"
+                className="nav__dropdown"
+              >
+                {topics.map(({ slug }) => {
+                  return (
+                    <ListGroup variant="flush">
+                      <ListGroup.Item key={slug} className="nav__item">
+                        <Nav.Link
+                          className="nav__item__link"
+                          href={`/topics/${slug}`}
+                        >
+                          {slug.charAt(0).toUpperCase() + slug.slice(1)}
+                        </Nav.Link>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  );
+                })}
+              </NavDropdown>
               <NavDropdown
                 title="Sort Articles By"
                 id="offcanvasNavbarDropdown"
+                className="nav__dropdown"
               >
-                <NavDropdown.Item href={`/articles?sort=created_at`}>
-                  Date
+                <NavDropdown.Item>
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="?sort=created_at"
+                  >
+                    Date
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href={`/articles?sort=comment_count`}>
-                  Comment count
+                <NavDropdown.Item>
+                  <Link
+                  className="link"
+                    style={{ textDecoration: "none" }}
+                    to="?sort=comment_count"
+                  >
+                    Comment Count
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href={`/articles?sort=votes`}>
-                  Votes
+                <NavDropdown.Item>
+                  <Link className="link" style={{ textDecoration: "none" }} to="?sort=votes">
+                    Votes
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Order" id="offcanvasNavbarDropdown">
-                <NavDropdown.Item href={`/articles?order=asc`}>
-                  Ascending
+                <NavDropdown.Item>
+                  <Link className="link"  style={{ textDecoration: "none" }} to="?order=asc">
+                    Ascending
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href={`/articles?order=desc`}>
-                  Descending
+                <NavDropdown.Item>
+                  <Link className="link"  style={{ textDecoration: "none" }} to="?order=desc">
+                    Descending
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link className="nav__item__link" href="/user">

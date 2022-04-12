@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Card, Container, Row, Image, Col } from "react-bootstrap";
+import { Card, Container, Row, Image, Col, Button } from "react-bootstrap";
 import React from "react";
 import thumb from "../assets/thumbs-up.png";
 
@@ -26,12 +26,24 @@ export default function CommentCard({ comment }) {
               <Card.Text className="mx-5" style={{ display: "inline" }}>
                 {comment.votes}
               </Card.Text>
-              <Col>
-              <Link className="ps-5 ms-5" to={`/comment/${comment.comment_id}`}>
-                delete
-              </Link>
               </Col>
-            </Col>
+              <Col>
+                <Button
+                  id="pop-btn"
+                  className="btn btn-primary mt-3"
+                  type="submit"
+                  variant="warning"
+                >
+                  <Link
+                    className="link ps-5 ms-5"
+                    style={{ textDecoration: "none" }}
+                    to={`/comment/${comment.comment_id}`}
+                  >
+                    delete
+                  </Link>
+                </Button>
+              </Col>
+            
           </Row>
         </Card.Body>
       </Card>

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
+import DeleteComment from "./components/DeleteComment";
 import User from "./components/User";
 import { UserContext } from "./components/Contexts/UserContext";
 import React, { useState } from "react";
@@ -27,6 +28,7 @@ export default function App() {
               <Route path="/topics/:slug" element={<ArticleList />} />
               <Route path="/article/:article_id" element={<SingleArticle />} />
               <Route path="/user" element={<User />} />
+              <Route path="/comment/:comment_id" element={<DeleteComment />} />
             </Routes>
           </div>
         </BrowserRouter>

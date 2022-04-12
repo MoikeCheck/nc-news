@@ -1,5 +1,5 @@
 import { Card, Image, Container, Col, Row } from "react-bootstrap";
-import logo from "../assets/orange-slice (1).png";
+import thumb from "../assets/thumbs-up.png";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -17,7 +17,7 @@ export default function ArticleCard({
       className="normal-text"
       style={{ textDecoration: "none", color: "white" }}
     >
-      <Container>
+      <Container className='Article__container'>
         <Card
           className="article__card my-3 pt-2 justify-content-center"
           xs="4"
@@ -34,8 +34,8 @@ export default function ArticleCard({
               <br />
               <Row className="justify-content-md-center">
                 <Col>Comments: {CommentCount}</Col>
-                <Col xs={12} sm={4} md={4}>
-                  <Image src={logo} className="card__img ml-5" width="40" />
+                <Col className='Article__votes p-1' xs={12} sm={4} md={2}>
+                  <Image src={thumb} className="card__img ml-5" width="40" />
                   {Votes}
                 </Col>
               </Row>

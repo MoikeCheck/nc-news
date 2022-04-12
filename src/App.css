@@ -21,3 +21,33 @@
   width: 50px;
   height: 50px;
 }
+
+#vote-button {
+  margin: 700px;
+}
+
+.Article__votes {
+  margin-left: 300px;
+}
+
+.card__img {
+  margin-left: 100px;
+}
+
+#vote-button {
+  width: 50px;
+  height: 50px;
+}
+
+.link {
+  color: rgb(0, 0, 0);
+}
+.link:hover {
+   color: rgb(179, 32, 13)
+}
+
+
+.delete__button{
+  width: 150px;
+  height: 50px;
+}
