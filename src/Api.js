@@ -36,14 +36,12 @@ export const patchVotes = (article_id) => {
 
 export const getCommentsByArticleId = (article_id) => {
   return myApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    console.log(data.comments);
     return data.comments;
   });
 };
 
 export const getUsers = () => {
   return myApi.get("/users").then(({ data }) => {
-    console.log(data);
     return data.users;
   });
 };
@@ -56,8 +54,8 @@ export const postComment = (article_id, comment) => {
     });
 };
 
-export const removeCommentById =(comment_id) => {
+export const removeCommentById = (comment_id) => {
   return myApi.delete(`/comments/${comment_id}`).then((data) => {
     return data;
   });
-}
+};

@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import * as api from "../Api";
 import { useParams } from "react-router-dom";
-import { Card, Container, Row, Col, Button } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import React from "react";
 import Comments from "./Comments";
 import PostComment from "./PostComment";

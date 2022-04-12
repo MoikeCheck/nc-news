@@ -48,9 +48,10 @@ export default function NavBar() {
               >
                 {topics.map(({ slug }) => {
                   return (
-                    <ListGroup variant="flush">
+                    <ListGroup key={slug} variant="flush">
                       <ListGroup.Item key={slug} className="nav__item">
                         <Nav.Link
+                          key={slug}
                           className="nav__item__link"
                           href={`/topics/${slug}`}
                         >
@@ -77,7 +78,7 @@ export default function NavBar() {
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Link
-                  className="link"
+                    className="link"
                     style={{ textDecoration: "none" }}
                     to="?sort=comment_count"
                   >
@@ -85,19 +86,31 @@ export default function NavBar() {
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link className="link" style={{ textDecoration: "none" }} to="?sort=votes">
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="?sort=votes"
+                  >
                     Votes
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Order" id="offcanvasNavbarDropdown">
                 <NavDropdown.Item>
-                  <Link className="link"  style={{ textDecoration: "none" }} to="?order=asc">
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="?order=asc"
+                  >
                     Ascending
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link className="link"  style={{ textDecoration: "none" }} to="?order=desc">
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="?order=desc"
+                  >
                     Descending
                   </Link>
                 </NavDropdown.Item>
