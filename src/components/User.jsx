@@ -66,6 +66,7 @@ export default function User() {
             </Card>
             <Container className="text-center my-3">
               <Button
+                variant="warning"
                 id="pop-btn"
                 type="button"
                 onClick={() => setLoggedInUser("")}

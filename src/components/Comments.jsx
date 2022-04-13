@@ -20,31 +20,21 @@ export default function CommentCard({ comment }) {
             </Card.Title>
           </Row>
           <Card.Text className="card-text my-2">{comment.body}</Card.Text>
-          <Row>
-            <Col>
-              <Image src={thumb} className=" me-5" width="30" />
-              <Card.Text className="mx-5" style={{ display: "inline" }}>
-                {comment.votes}
-              </Card.Text>
-              </Col>
-              <Col>
-                <Button
-                  id="pop-btn"
-                  className="btn btn-primary mt-3"
-                  type="submit"
-                  variant="warning"
-                >
-                  <Link
-                    className="link ps-5 ms-5"
-                    style={{ textDecoration: "none" }}
-                    to={`/comment/${comment.comment_id}`}
-                  >
-                    delete
-                  </Link>
-                </Button>
-              </Col>
-            
-          </Row>
+          <br />
+          <br />
+          <Image src={thumb} width="30" />
+          <Card.Text style={{ display: "inline" }}>{comment.votes}</Card.Text>
+          <br />
+          <br />
+          <Button size="sm" type="submit" variant="warning">
+            <Link
+              className="link"
+              style={{ textDecoration: "none" }}
+              to={`/comment/${comment.comment_id}`}
+            >
+              delete
+            </Link>
+          </Button>
         </Card.Body>
       </Card>
       <footer className="blockquote-footer mt-1">
