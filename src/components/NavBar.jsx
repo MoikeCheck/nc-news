@@ -73,21 +73,6 @@ export default function NavBar() {
                     Cooking
                   </Link>
                 </NavDropdown.Item>
-                {/* {topics.map(({ slug }) => {
-                  return (
-                    <ListGroup key={slug} variant="flush">
-                      <ListGroup.Item key={slug} className="nav__item">
-                        <Nav.Link
-                          key={slug}
-                          className="nav__item__link"
-                          href={`/topics/${slug}`}
-                        >
-                          {slug.charAt(0).toUpperCase() + slug.slice(1)}
-                        </Nav.Link>
-                      </ListGroup.Item>
-                    </ListGroup>
-                  );
-                })} */}
               </NavDropdown>
               <NavDropdown
                 title="Sort Articles By"
