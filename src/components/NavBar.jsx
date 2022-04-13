@@ -46,7 +46,34 @@ export default function NavBar() {
                 id="offcanvasNavbarDropdown"
                 className="nav__dropdown"
               >
-                {topics.map(({ slug }) => {
+                <NavDropdown.Item>
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="/topics/coding"
+                  >
+                    Coding
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="/topics/football"
+                  >
+                    Football
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    className="link"
+                    style={{ textDecoration: "none" }}
+                    to="/topics/cooking"
+                  >
+                    Cooking
+                  </Link>
+                </NavDropdown.Item>
+                {/* {topics.map(({ slug }) => {
                   return (
                     <ListGroup key={slug} variant="flush">
                       <ListGroup.Item key={slug} className="nav__item">
@@ -60,7 +87,7 @@ export default function NavBar() {
                       </ListGroup.Item>
                     </ListGroup>
                   );
-                })}
+                })} */}
               </NavDropdown>
               <NavDropdown
                 title="Sort Articles By"
