@@ -25,7 +25,7 @@ export default function DeleteComment() {
         lg="4"
       >
         <Col>
-          <Button
+          {/* <Button
             type="button"
             id="pop-btn"
             className="btn btn-primary mt-3"
@@ -39,7 +39,7 @@ export default function DeleteComment() {
             >
               Back
             </Link>
-          </Button>
+          </Button> */}
 
           {deleted !== undefined ? (
             <div className="alert alert-success my-2" role="alert">
